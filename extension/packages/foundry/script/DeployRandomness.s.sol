@@ -15,8 +15,8 @@ contract DeployScript is ScaffoldETHDeploy {
       );
     }
     vm.startBroadcast(deployerPrivateKey);
-
-    RandomnessPrediction randomnessPredeciton = new RandomnessPrediction();
+    new RandomnessPrediction();
+    
     vm.stopBroadcast();
 
     /**

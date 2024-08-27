@@ -8,9 +8,13 @@ This Scaffold-ETH 2 extension comes pre-configured with RANDOMNESS generator con
 ```bash
   npx create-eth@latest -e bhavyagor12/randomness-extension
 ```
+## Usage
 
 This extension supports both `foundry` and `hardhat` so choose any.
-    
+
+- For Foundry (add this to the package.json)
+- Copy the `script/DeployRandomness.s.sol` and `script/Deploy.s.sol` to your project
+
 ## Documentation
 
 [Ethereum PoS introduces randomness using block.difficulty](https://eips.ethereum.org/EIPS/eip-4399)
