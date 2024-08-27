@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import type { NextPage } from "next";
 import { createPublicClient, http, keccak256, toRlp } from "viem";
 import { useAccount } from "wagmi";
@@ -95,11 +96,11 @@ const RandomNess: NextPage = () => {
     console.log("Starting block at time of predict", blockNumber);
     console.log("targetBlockNumber: ", targetBlockNumber);
 
-    const blockData = await publicClient.getBlock({ blockNumber: targetBlockNumber });
+    const blockData = await publicClient.getBlock({ blockNumber: targetBlockNumber }); // gets block data
 
     console.log("blockData: ", blockData);
 
-    const values: `0x${string}`[] = [];
+    const values: `0x${string}`[] = []; // array of values to be hashed
     values.push(blockData.parentHash);
     values.push(blockData.sha3Uncles);
     values.push(blockData.miner as `0x${string}`);
@@ -240,6 +241,38 @@ const RandomNess: NextPage = () => {
                 </button>
               </>
             )}
+          </div>
+          <div className="border-2 border-secondary mt-4">
+            <p className="text-start text-lg">
+              1) Get started by looking at:{" "}
+              <Link href="https://eips.ethereum.org/EIPS/eip-4399" className="underline">
+                Block Difficulty EIP-4399
+              </Link>{" "}
+            </p>
+            <p className="text-start text-lg">
+              2) Navigate to the contract:{""}
+              <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
+                contracts/RandomnessPrediction.sol
+              </code>
+            </p>
+            <p className="text-start text-lg">
+              3) Check the contract and its comments to understand how the randomness is generated
+            </p>
+            <p className="text-start text-lg">
+              4) Deploy the contract using the{" "}
+              <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
+                yarn deploy
+              </code>{" "}
+            </p>
+            <p className="text-start text-lg">
+              5) On the frontend checkout the{" "}
+              <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
+                packages/nextjs/app/randomness/page.tsx
+              </code>{" "}
+            </p>
+            <p className="text-start text-lg">
+              6) Here navigate to the predict function and understand how the block data is used to generate randomness
+            </p>
           </div>
         </div>
       </div>
