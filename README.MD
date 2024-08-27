@@ -9,7 +9,7 @@ This Scaffold-ETH 2 extension comes pre-configured with RANDOMNESS generator con
 1. Create a new project with Privy Widget:
 
 ```bash
-npx create-eth@latest -e @bhavyagor12/randomness-extension
+npx create-eth@latest -e bhavyagor12/randomness-extension
 ```
 
 2. Deploy the contracts by altering the deploy contract file
