@@ -6,7 +6,7 @@ This Scaffold-ETH 2 extension comes pre-configured with RANDOMNESS generator con
 
 ## Installation
 
-1. Create a new project with Privy Widget:
+1. Create a new project with the radomness extension:
 
 ```bash
 npx create-eth@latest -e bhavyagor12/randomness-extension
