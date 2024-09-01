@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import type { NextPage } from "next";
-import { createPublicClient, http, keccak256, toRlp } from "viem";
+import { createPublicClient, http, keccak256, toRlp, toHex } from "viem";
 import { useAccount } from "wagmi";
 import { useBlockNumber } from "wagmi";
 import { useWalletClient } from "wagmi";
@@ -123,12 +123,10 @@ const RandomNess: NextPage = () => {
       values.push(blockData.withdrawalsRoot);
     }
     if ("blobGasUsed" in blockData && blockData.blobGasUsed !== undefined && blockData.blobGasUsed !== null) {
-      // @ts-ignore
-      values.push(blockData.blobGasUsed as `0x${string}`);
+      values.push(toHex(blockData.blobGasUsed));
     }
     if ("excessBlobGas" in blockData && blockData.excessBlobGas !== undefined && blockData.excessBlobGas !== null) {
-      // @ts-ignore
-      values.push(blockData.excessBlobGas as `0x${string}`);
+      values.push(toHex(blockData.excessBlobGas));
     }
     if (
       "parentBeaconBlockRoot" in blockData &&
